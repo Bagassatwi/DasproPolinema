@@ -19,6 +19,8 @@ public class ifCetakKRS06 {
         if (uktLunas) {
             System.out.println("UKT Payment has been verified");
             System.out.println("KRS now can be printed and you can ask the academix advisor to sign it.");
+        } else {
+            System.out.println("Registration rejected. Please pay UKT first.");
         }
     }
 }
