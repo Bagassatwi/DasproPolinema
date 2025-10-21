@@ -83,7 +83,7 @@ public class AcademicAssessment {
     double rataRataNilaiAkhir = (nilaiAkhir1 + nilaiAkhir2) / 2;
 
     String statusSemester;
-    if (status1 == "LULUS" && status2 == "LULUS") {
+    if (status1.equals("LULUS") && status2.equals("LULUS")) {
       if (rataRataNilaiAkhir >= 70) {
         statusSemester = "LULUS";
       } else {
