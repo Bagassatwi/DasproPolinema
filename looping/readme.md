@@ -127,4 +127,67 @@ public class TheTriangle06 {
     }
    ```
   3. Commit and push the program code to GitHub.<br/>
-     <a href="">respect</a>
+     <a href="https://github.com/Bagassatwi/DasproPolinema/commit/fc56f5d065ec2366f20f22944a19e3ea35e22316">Github commit link</a>
+  4. When typing "t" as the confirmation input, what happens? Why?
+   
+      it loops through the confirmation over and over because the condition to meet the code block inside the do while isn't met while the condition for the loop is met.
+  5. Modify the program code so that when the user enters "t" as the confirmation input, the program will stop.
+   
+     ```
+     import java.util.Scanner;
+     public class DoWhileLeaveEntitlement06 {
+       public static void main(String[] args) {
+         Scanner input = new Scanner(System.in);
+         int leaveEntitlement = 0, numLeave = 0;
+         String confirmation = "";
+         System.out.print("Input your leave entitlement: ");
+         leaveEntitlement = input.nextInt();
+         do {
+           System.out.print("Do you want to take a leave (y/n)? ");
+           confirmation = input.next();
+           if (confirmation.equalsIgnoreCase("y")) {
+             System.out.print("How many day(s)? ");
+             numLeave = input.nextInt();
+             if (numLeave <= leaveEntitlement) {
+               leaveEntitlement -= numLeave;
+               System.out.println("Remaining leave entitlement: " + leaveEntitlement);
+             } else {
+               System.out.println("You don't have enough leave entitlement");
+               System.out.print("Input your leave entitlement: ");
+               leaveEntitlement = input.nextInt();
+             }
+           } else {
+             break;
+           }
+         } while (leaveEntitlement > 0);
+       }
+     }
+      ```
+
+  Assignment (Open Challenge)
+  1. Do a modification on the program from the lab 3, so you get this following result.
+   
+  <img src="./img/assignment.png" />
+  <br />
+
+  ```
+  import java.util.Scanner;
+
+public class TheTriangle06 {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Input a number: ");
+    int i = 0;
+    String s = "";
+    int numInput = input.nextInt();
+    for (i = numInput; i > 0; i--) {
+      s = "";
+      for (int j = 0; j < i; j++) {
+        s += " *";
+      }
+      System.out.println(s);
+    }
+  }
+}
+
+  ```

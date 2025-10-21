@@ -21,6 +21,8 @@ public class DoWhileLeaveEntitlement06 {
           System.out.print("Input your leave entitlement: ");
           leaveEntitlement = input.nextInt();
         }
+      } else {
+        break;
       }
     } while (leaveEntitlement > 0);
   }

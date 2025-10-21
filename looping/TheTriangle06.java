@@ -7,8 +7,11 @@ public class TheTriangle06 {
     int i = 0;
     String s = "";
     int numInput = input.nextInt();
-    for (; i < numInput; i++) {
-      s += " *";
+    for (i = numInput; i > 0; i--) {
+      s = "";
+      for (int j = 0; j < i; j++) {
+        s += " *";
+      }
       System.out.println(s);
     }
   }
