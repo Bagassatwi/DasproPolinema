@@ -60,3 +60,67 @@ result:
 because we added a <= to the condition, meaning it will also print num[4] and since we don't specify the last element and specified the array to be new int[4], it's going to print 0.
 
 5. Commit and push the changes to GitHub. 
+
+### Question 2.2 (Requesting User Input to Fill in an Array Element)
+
+1. Change the statement in step 5 to be like this
+```java
+    for (int i = 0; i < finalScore.length; i++) {
+      System.out.print("Enter the final score " + (i) + ": ");
+      finalScore[i] = sc.nextInt();
+    }
+```
+Run the program. Have there been any changes? How can it be like that? <br />
+No changes on the result, because when we specify i < 10, it's essentially the same as i < finalScore.length because finalScore.length is 10.
+
+2. Apa yang dimaksud dengan kondisi i < finalScore.length? <br/>
+   it checks whether i is less than finalScore.length
+3.  Change the statement in step 6 to be like this, so that the program only displays the grades of students who passed, students who have a score > 70
+   ```java
+      for (int i = 0; i < finalScore.length; i++) {
+        if (finalScore[i] > 70) {
+          System.out.println("Student " + i + " Passed!");
+        }
+      }
+   ```
+   Run the program and describe the flow of the program!
+
+```
+    1. The program starts and creates a Scanner object to take input from the user.
+
+    2. It makes an integer array named finalScore that can store 10 scores.
+
+    3. It uses a for loop to ask the user to enter 10 final scores, one by one and each score is saved into the array.
+
+    4. After all scores are entered, another for loop checks each score.
+
+    5. If a score is greater than 70, the program prints that the student (with that index number) “Passed!”.
+
+    6. Only students with scores above 70 are displayed. Those who didn’t pass are shown.
+
+    7. The program ends after checking all 10 students.
+```
+
+4. Modify the program so that it displays all students, and mark which one passed, and which did not!
+```java
+import java.util.Scanner;
+
+public class arrayValue06 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int[] finalScore = new int[10];
+    for (int i = 0; i < finalScore.length; i++) {
+      System.out.print("Enter the final score " + (i) + ": ");
+      finalScore[i] = sc.nextInt();
+    }
+
+    for (int i = 0; i < finalScore.length; i++) {
+      if (finalScore[i] > 70) {
+        System.out.println("Student " + i + " Passed!");
+      } else {
+        System.out.println("Student " + i + " Failed!");
+      }
+    }
+  }
+}
+```
