@@ -341,6 +341,7 @@ Basic Programming Practicum: Looping Assignment
 
    <img src="./img/starTriangle1.png" />
    b. 
+   
    ```
                *
               **
