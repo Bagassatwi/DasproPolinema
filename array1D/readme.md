@@ -264,3 +264,205 @@ Key not found
     sc.close();
   }
 ```
+
+### Assignment
+1. You are asked to create a program that can store and manage student grades. The grades are integers. The program must provide features for:
+- entering the number of student grades to be entered,
+- entering each student's grade,
+- calculating the average grade,
+- displaying the highest and lowest grades, and
+- displaying all grades entered.
+```java
+import java.util.Scanner;
+
+public class gradeManager {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the number of student grades: ");
+    int numGrades = scanner.nextInt();
+
+    int[] grades = new int[numGrades];
+
+    System.out.println("Enter the grades:");
+    for (int i = 0; i < numGrades; i++) {
+      System.out.print("Student " + (i + 1) + " Grade: ");
+      grades[i] = scanner.nextInt();
+    }
+
+    int sum = 0;
+    int highest = grades[0];
+    int lowest = grades[0];
+
+    for (int i = 0; i < numGrades; i++) {
+      sum = sum + grades[i];
+
+      if (grades[i] > highest) {
+        highest = grades[i];
+      }
+
+      if (grades[i] < lowest) {
+        lowest = grades[i];
+      }
+    }
+
+    double average = (double) sum / numGrades;
+
+    System.out.println("\n--- Grade Report ---");
+    System.out.print("All Grades Entered: ");
+    for (int i = 0; i < numGrades; i++) {
+      System.out.print(grades[i] + (i < numGrades - 1 ? ", " : ""));
+    }
+    System.out.println();
+
+    System.out.println("Average Grade: " + average);
+    System.out.println("Highest Grade: " + highest);
+    System.out.println("Lowest Grade: " + lowest);
+  }
+}
+```
+
+2.  Create a program that can manage food and beverage orders at a cafe. The program will allow users to enter orders, calculate the total cost of the order, and display a list of the orders that have been placed.
+
+<ul>
+
+  <li> 
+    Input:
+    <ul >
+    <li>
+      number of orders (input by the user).
+    </li>
+    <li>
+      name of the food/drink and the price for each order (input by the user).
+    </li>
+    </ul>
+  </li>
+
+  <li>
+    Process:
+    <ul>
+      <li>
+        Store the order data in a one-dimensional array for the order names; and a separate one-dimensional array for the prices.
+      </li>
+      <li>
+        Calculate the total cost of all orders entered.
+      </li>
+      <li>
+        Display a list of orders that have been entered along with the total cost.
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    Output:
+    <ul>
+      <li>
+        List of orders and the total cost of all orders.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+```java
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter the number of orders: ");
+    int numOrders = scanner.nextInt();
+
+    String[] orderNames = new String[numOrders];
+    double[] orderPrices = new double[numOrders];
+    double totalCost = 0.0;
+
+    for (int i = 0; i < numOrders; i++) {
+      System.out.println("\n--- Order " + (i + 1) + " ---");
+      scanner.nextLine();
+
+      System.out.print("Enter food/drink name: ");
+      orderNames[i] = scanner.nextLine();
+
+      System.out.print("Enter price: ");
+      orderPrices[i] = scanner.nextDouble();
+
+      totalCost = totalCost + orderPrices[i];
+    }
+
+    System.out.println("\n--- Order List ---");
+    for (int i = 0; i < numOrders; i++) {
+      System.out.println((i + 1) + ". " + orderNames[i] + " - $" + orderPrices[i]);
+    }
+
+    System.out.println("\nTotal Cost of all orders: $" + totalCost);
+  }
+```
+
+3. Continuing with the example of ordering food at a cafe, create a program that allows users to order food from the cafe's menu. The program must store a list of food items in an array and provide an option to search for the desired item using a linear search method.
+   <ul>
+  <li>
+    Input:
+    <ul>
+      <li>
+        A predefined menu item in array form. The item names are initialized during the array declaration. For example:
+        <br/>        
+        <pre><code>String[] menu = {"Fried Rice", "Fried Noodles", "Toasted Bread", "Fried Potatoes", "Teh Tarik", "Cappuccino", "Chocolate Ice"};</code></pre>
+      </li>
+      <li>
+        The name of the item to be searched for (user input).
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    Process:
+    <ul>
+      <li>
+        The program searches for the item entered by the user using a linear search algorithm.
+      </li>
+      <li>
+        If the item is found, the program informs the user that it is available. If not, the program informs the user that the item is not on the menu.
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    Output:
+    <ul>
+      <li>
+        Display the search results (available or not available) to the user.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+```java
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    String[] menu = { "Fried Rice", "Fried Noodles", "Toasted Bread", "Fried Potatoes", "Teh Tarik", "Cappuccino",
+        "Chocolate Ice" };
+
+    System.out.println("--- Cafe Menu ---");
+    for (int i = 0; i < menu.length; i++) {
+      System.out.println("- " + menu[i]);
+    }
+
+    System.out.print("\nEnter the item name to search for: ");
+    String searchItem = scanner.nextLine();
+
+    boolean found = false;
+
+    for (int i = 0; i < menu.length; i++) {
+      if (menu[i].equalsIgnoreCase(searchItem)) {
+        found = true;
+        break;
+      }
+    }
+
+    System.out.println("\n--- Search Results ---");
+    if (found) {
+      System.out.println("SUCCESS! The item '" + searchItem + "' is available on the menu.");
+    } else {
+      System.out.println("SORRY. The item '" + searchItem + "' is NOT on the menu.");
+    }
+  }
+```
