@@ -176,3 +176,91 @@ The average score of students who failed is: 65.5
     System.out.println("The average score of students who failed is: " + averageFail);
   }
 ```
+
+### Question 2.4 (Searching)
+1. Explain the meaning of the break; statement on line 13 of the program code in Experiment 4. <br /> when the condition is met, it gets out of the loop.
+2. Modify the program code in experiment 4 so that the program can receive input in the form of the number of array elements, the contents of the array, and the key you want to search for. Then, print to the screen the index of the element positions of the searched key. Example of program results:
+   ```
+    Enter the number of array elements: 8
+    Enter array element 0: 12
+    Enter array element 1: 18
+    Enter array element 2: -6
+    Enter array element 3: 10
+    Enter array element 4: 6
+    Enter array element 5: 15
+    Enter array element 6: 11
+    Enter array element 7: 9
+    Enter the key you want to search for: 10
+    The key in the array is located at index position 3
+   ```
+
+  ```java
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the number of array elements: ");
+    int size = sc.nextInt();
+    int[] arrayInt = new int[size];
+
+    for (int i = 0; i < size; i++) {
+      System.out.print(" Enter array element " + i + ": ");
+      arrayInt[i] = sc.nextInt();
+    }
+
+    System.out.print(" Enter the key you want to search for: ");
+    int key = sc.nextInt();
+
+    int result = -1;
+    for (int i = 0; i < arrayInt.length; i++) {
+      if (arrayInt[i] == key) {
+        result = i;
+        break;
+      }
+    }
+
+    System.out.println(" The key in the array is located at index position " + result);
+    sc.close();
+  }
+  ```
+
+3. Modify the program in experiment 4 so that the program will give the message "key not found" if the key is not in the array. Example of program results:
+```
+Enter the number of array elements: 6
+Enter array element 0: 19
+Enter array element 1: 23
+Enter array element 2: 29
+Enter array element 3: 31
+Enter array element 4: 37
+Enter array element 5: 43
+Enter the key you want to search for: 11
+Key not found
+```
+
+```java
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the number of array elements: ");
+    int size = sc.nextInt();
+    int[] arrayInt = new int[size];
+
+    for (int i = 0; i < size; i++) {
+      System.out.print(" Enter array element " + i + ": ");
+      arrayInt[i] = sc.nextInt();
+    }
+
+    System.out.print(" Enter the key you want to search for: ");
+    int key = sc.nextInt();
+
+    int result = -1;
+    for (int i = 0; i < arrayInt.length; i++) {
+      if (arrayInt[i] == key) {
+        result = i;
+        System.out.println(" The key in the array is located at index position " + result);
+        break;
+      } else {
+        System.out.println(" Key not found");
+        break;
+      }
+    }
+    sc.close();
+  }
+```
