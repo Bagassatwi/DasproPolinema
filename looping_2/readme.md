@@ -322,3 +322,36 @@ Basic Programming Practicum: Looping Assignment
         }
       }
    ```
+
+5. Implement the flowchart of the features you created in the previous theory assignment about nested loops!
+   
+   a.
+   ```
+    **********
+    *********
+    ********
+    *******
+    ******
+    *****
+    ****
+    ***
+    **
+    *
+   ```
+
+   <img src="./img/starTriangle1.png" />
+   b. 
+   ```
+               *
+              **
+             ***
+            ****
+           *****
+          ******
+         *******
+        ********
+       *********
+      **********
+   ```
+
+   <img src="./img/starTriangle2.png" />
