@@ -83,3 +83,58 @@ explain!<br/>
 13. What is the function of String.join()?<br/>
   To combine a list of strings into a single string using a specified delimiter
 
+### Question 2.2 (Utilizing Scanners and Loops for Input and Output on 2-Dimensional Arrays)
+1. Should the array elements from the scanner be filled in sequentially starting from the 0th index? Please explain! <br/>
+  No, because arrays in java support random access, meaning you can read or write to any element at any valid index.
+2. Modify the program code to provide the following menu options:
+   - Menu 1: Input audience data
+   - Menu 2: Show audience list
+   - Menu 3: Exit
+    ```java
+        while (true) {
+          System.out.print("Enter a name: ");
+          name = scanner.next();
+          System.out.print("Enter row number: ");
+          row = scanner.nextInt();
+          System.out.print("Enter column number: ");
+          col = scanner.nextInt();
+          audience[row - 1][col - 1] = name;
+          System.out.print("Are there any other audiences to be added (Y/N): ");
+          String next = scanner.next();
+          if (next.equalsIgnoreCase("n")) {
+            break;
+          }
+        }
+
+        System.out.println("All audiences by row: ");
+        for (int i = 0; i < audience.length; i++) {
+          System.out.println("Audience in row " + (i + 1) + ": " + String.join(", ", audience[i]));
+        }
+    ```
+3. Modify the program code to handle if the seat row/column number is not available<br/> we add this code block
+```java
+      if (audience[row - 1][col - 1] != null) {
+        System.out.println("Seat already taken! Please choose another seat.");
+        continue;
+      }
+```
+4.  In menu 1, modify the program code to give a warning if the selected seat is already occupied by other audiences, then display a command to enter rows and columns again<br/> we add this code block below the row and column input
+  ```java
+      while (audience[row - 1][col - 1] != null) {
+        System.out.print("Seat already taken! Please choose another seat.\n");
+        System.out.print("Enter row number: ");
+        row = scanner.nextInt();
+        System.out.print("Enter column number: ");
+        col = scanner.nextInt();
+      }
+  ```
+5. In menu 2, if the seat is empty, replace null with *** <br/> we add this code block
+  ```java
+    for (int i = 0; i < audience.length; i++) {
+      for (int j = 0; j < audience[i].length; j++) {
+        if (audience[i][j] == null) {
+          audience[i][j] = "***";
+        }
+      }
+    }
+  ```

@@ -17,11 +17,29 @@ public class CinemaWithScanner06 {
       row = scanner.nextInt();
       System.out.print("Enter column number: ");
       col = scanner.nextInt();
+      while (audience[row - 1][col - 1] != null) {
+        System.out.print("Seat already taken! Please choose another seat.\n");
+        System.out.print("Enter row number: ");
+        row = scanner.nextInt();
+        System.out.print("Enter column number: ");
+        col = scanner.nextInt();
+      }
+      if (audience[row - 1][col - 1] != null) {
+        System.out.println("Seat already taken! Please choose another seat.");
+        continue;
+      }
       audience[row - 1][col - 1] = name;
       System.out.print("Are there any other audiences to be added (Y/N): ");
       String next = scanner.next();
       if (next.equalsIgnoreCase("n")) {
         break;
+      }
+    }
+    for (int i = 0; i < audience.length; i++) {
+      for (int j = 0; j < audience[i].length; j++) {
+        if (audience[i][j] == null) {
+          audience[i][j] = "***";
+        }
       }
     }
 
