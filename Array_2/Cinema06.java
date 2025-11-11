@@ -26,9 +26,10 @@ public class Cinema06 {
       System.out.println("Length of row: " + rowAudience.length);
     }
 
-    System.out.println("Audiences in row 3 (using for loop):");
-    for (int i = 0; i < audience[2].length; i++) {
-      System.out.println(audience[2][i]);
+    System.out.println("Audiences in row 3: ");
+    for (String name : audience[2]) {
+      System.out.println(name);
     }
+
   }
 }
