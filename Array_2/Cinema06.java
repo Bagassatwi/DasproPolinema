@@ -1,4 +1,3 @@
-package Array_2;
 
 public class Cinema06 {
   public static void main(String[] args) {

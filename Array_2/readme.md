@@ -1,4 +1,4 @@
-# Array Practicum
+# Array 2D Practicum
 
 Simple overview of use/purpose.
 
@@ -138,3 +138,47 @@ explain!<br/>
       }
     }
   ```
+
+### Question 2.3 (2-Dimensional Array with Different Row Lengths)
+1. Add the following program code: <br/>
+  ```java
+      for (int i = 0; i < myNumbers.length; i++) {
+        System.out.println(Arrays.toString(myNumbers[i]));
+      }
+  ```
+2. What is the function of Arrays.toString()? <br/>
+   To Convert arrays into human readable string
+3. What is the default value for elements in an array with the data type int? <br/>
+   The default value is 0
+4. Add the following program code: <br/>
+   ```java
+    for (int i = 0; i < myNumbers.length; i++) {
+      System.out.println("Length of row " + (i + 1) + ": " + myNumbers[i].length);
+    }
+   ```
+5. The myNumbers array has a different length for each row. How to make the length for each row the same? Can the array length be modified? <br/>
+   1. instead of declaring each row's length,
+    ```java
+      int[][] myNumbers = new int[3][];
+      myNumbers[0] = new int[5];
+      myNumbers[1] = new int[3];
+      myNumbers[2] = new int[1];
+    ```
+    we can declare the array to have the same length in one line of code
+    ```java
+      int[][] myNumbers = new int[3][5];
+    ```
+   2. No, since array length is immutable, it cannot be modified.
+### Question 2.4 (SIAKAD Case Study)
+1. What happens if the number of students and courses changes? Modify the SIAKAD program code to accommodate the dynamic number of students and courses.<br/>
+   1. If thw number of students and courses change, then the user's input would be different and have to input a different amount of data.
+   2. Change the array declaration to: <br/> 
+    ```java
+      System.out.print("Enter number of students: ");
+      int numStudents = sc.nextInt();
+      System.out.print("Enter number of courses: ");
+      int numCourses = sc.nextInt();
+      int[][] score = new int[numStudents][numCourses];
+    ```    
+### Assignment
+<img src="./img/Flowchart.png">
